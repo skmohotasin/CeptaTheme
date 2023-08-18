@@ -1,0 +1,27 @@
+<nav class="header__inline-menu">
+  <ul class="list-menu no-gap list-menu--inline" role="list">
+    {%- for link in linklists -%}
+      <li class="{% cycle 'odd' , 'even' %}">
+          <a id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__new-menu-item list-menu__item focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+      </li>
+      {%- unless forloop.last -%}
+      <li class="svg">
+      </li>
+      {% endunless %}
+    {%- endfor -%}
+  </ul>
+</nav>

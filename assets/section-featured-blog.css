@@ -1,0 +1,220 @@
+.blog-placeholder {
+  margin: 0 1.5rem;
+  background: rgb(var(--color-background));
+}
+
+@media screen and (min-width: 750px) {
+  .blog-placeholder {
+    text-align: center;
+    width: 50%;
+    margin: 0;
+  }
+}
+
+.blog-placeholder__content {
+  padding: 3rem;
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.blog-placeholder .placeholder {
+  position: relative;
+}
+
+.blog-placeholder .placeholder .placeholder-svg {
+  height: auto;
+}
+
+.blog-placeholder h2 {
+  margin: 0;
+}
+
+.blog-placeholder .rte-width {
+  margin-top: 1.2rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+@media screen and (min-width: 990px) {
+  .grid--1-col-desktop .article-card .card__content {
+    text-align: center;
+  }
+}
+
+.blog__title {
+  margin: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .blog__posts.articles-wrapper {
+    margin-bottom: 0;
+  }
+}
+
+.blog__posts.articles-wrapper .article {
+  scroll-snap-align: start;
+}
+
+@media screen and (max-width: 768px) {
+  .blog__post.article {
+    width: 100%;
+  }
+}
+
+.background-secondary .blog-placeholder__content {
+  background-color: rgb(var(--color-background));
+}
+
+.blog__posts .card-wrapper {
+  width: 100%;
+}
+
+.blog__button {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .blog__button {
+    margin-top: 5rem;
+  }
+}
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  @media screen and (min-width: 750px) {
+    .blog__posts .article + .article {
+      margin-left: var(--grid-desktop-horizontal-spacing);
+    }
+  }
+}
+.article-card__image-wrapper {
+  display: block;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .featured-blog {
+    margin: 0;
+  }
+  .title-and-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: calc(100% - 8.759vw);
+    margin: 0 4.38vw;
+    border-bottom: 1px solid rgb(var(--color-heading));
+  }
+  .title-and-buttons .title-wrapper-with-link {
+    margin-bottom: 1.703vw;
+  }
+  .title-and-buttons .slider-buttons {
+    border-left: 1px solid rgb(var(--color-heading));
+    padding-left: 3.65vw;
+  }
+  .blog__posts.articles-wrapper {
+    margin-top: 0.973vw;
+    width: calc(100% - 8.759vw);
+    margin: 0 4.38vw;
+    gap: 4.38vw;
+  }
+  .blog__posts .article-card-wrapper {
+    padding-top: 12.165vw;
+  }
+  .article-card__image-wrapper img {
+    max-height: 3.65vw;
+    width: auto;
+  }
+  .article-card__image-wrapper:after {
+    display: block;
+    content: "";
+    margin-top: 3.65vw;
+    height: 1px;
+    width: 12.165vw;
+    background: rgb(var(--color-heading));
+  }
+  .card__heading {
+    margin-top: 12.165vw;
+    margin-bottom: 8.516vw;
+  }
+  .article-card__excerpt {
+    font-size: 3.893vw;
+  }
+  .card__information .button {
+    margin-top: 12.165vw;
+  }
+  .card__information .button {
+    --alpha-button-background: 0;
+    font-size: 4.866vw;
+    padding: 0 6.083vw;
+  }
+  .modal-container .card__content {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .blog__posts.articles-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+  }
+  slider-component {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-top: 1px solid rgb(var(--color-heading));
+  }
+  .title-and-buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-top: 1.719vw;
+    padding-left: 3.698vw;
+    padding-right: 3.698vw;
+    width: 22.917vw;
+    border-right: 1px solid rgb(var(--color-heading));
+  }
+  .blog__posts .article-card-wrapper {
+    padding-left: 2.604vw;
+    padding-top: 2.604vw;
+  }
+  .article-card__image-wrapper img {
+    max-height: 1.302vw;
+    width: auto;
+  }
+  .article-card__image-wrapper:after {
+    display: block;
+    content: "";
+    margin-top: 1.042vw;
+    height: 1px;
+    width: 4.167vw;
+    background: rgb(var(--color-heading));
+  }
+  .card__heading {
+    margin-top: 2.604vw;
+    margin-bottom: 1.823vw;
+  }
+  .article-card__excerpt {
+    font-size: 1.042vw;
+    line-height: normal;
+  }
+  .card__information .button {
+    margin-top: 2.604vw;
+  }
+  .featured-blog {
+    margin: auto 2.083vw;
+  }
+  .card__information .button {
+    --alpha-button-background: 0;
+    font-size: 1.25vw;
+    padding: 0.521vw 1.302vw;
+  }
+  .modal-container .card__content {
+    overflow-y: auto;
+    max-height: 40vh;
+  }
+}

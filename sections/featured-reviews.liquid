@@ -1,0 +1,333 @@
+{{ 'section-featured-reviews.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'featured-reviews.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | divided_by: 4.11 | round: 4 }}vw;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | divided_by: 4.11 | round: 4 }}vw;
+  }
+
+  @media screen and (min-width: 769px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | divided_by: 19.20 | round: 4 }}vw;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 19.20 | round: 4 }}vw;
+    }
+  }
+{%- endstyle -%}
+<div
+  class="featured-reviews content-container color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+>
+  <div class="featured-reviews__wrapper_head featured-reviews-align-{{ section.settings.desktop_content_alignment }} {{ section.settings.desktop_content_alignment }}">
+    {%- if section.settings.heading != blank -%}
+      <div class="featured-reviews__heading">
+        <h2 class="featured-reviews__heading inline-richtext {{ section.settings.heading_size }} {{ section.settings.text_transform }}">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+    {%- endif %}
+    {%- if section.settings.review_stars != blank -%}
+      <div class="featured-reviews__stars">
+        <P>{{ section.settings.review_stars }}</P>
+        <svg xmlns="http://www.w3.org/2000/svg" width="146" height="23" viewBox="0 0 146 23" fill="none">
+          <path d="M55.76 8.42001L46.6761 7.87294L43.255 0L39.834 7.87294L30.76 8.42001L37.7197 13.8333L35.4359 22.045L43.255 17.5175L51.0742 22.045L48.7904 13.8333L55.76 8.42001Z" fill="white"/>
+          <path d="M85.76 8.42001L76.6761 7.87294L73.255 0L69.834 7.87294L60.76 8.42001L67.7197 13.8333L65.4359 22.045L73.255 17.5175L81.0742 22.045L78.7904 13.8333L85.76 8.42001Z" fill="white"/>
+          <path d="M115.76 8.42001L106.676 7.87294L103.255 0L99.834 7.87294L90.76 8.42001L97.7197 13.8333L95.4359 22.045L103.255 17.5175L111.074 22.045L108.79 13.8333L115.76 8.42001Z" fill="white"/>
+          <path d="M145.76 8.42001L136.676 7.87294L133.255 0L129.834 7.87294L120.76 8.42001L127.72 13.8333L125.436 22.045L133.255 17.5175L141.074 22.045L138.79 13.8333L145.76 8.42001Z" fill="white"/>
+          <path d="M25.76 8.42001L16.6761 7.87294L13.255 0L9.83398 7.87294L0.76001 8.42001L7.71968 13.8333L5.43589 22.045L13.255 17.5175L21.0742 22.045L18.7904 13.8333L25.76 8.42001Z" fill="white"/>
+        </svg>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="featured-reviews__text {{ section.settings.text_transform }}">
+        <P>{{ section.settings.text }}</P>
+      </div>
+    {%- endif -%}
+  </div>
+  <div
+    class="featured-reviews__wrapper"
+    data-current-page="1"
+    aria-live="polite"
+    data-pre-page-limit-desktop="{{ section.settings.number_block_desktop }}"
+    data-pre-page-limit-mobile="{{ section.settings.number_block_mobile }}"
+  >
+    {%- for block in section.blocks -%}
+      <div class="featured-reviews__block{% if forloop.index > section.settings.number_block_desktop or forloop.index > section.settings.number_block_mobile  %} hidden{% endif %}">
+        <div class="featured-reviews__heading-top">
+          {%- if block.settings.heading != blank -%}
+            <div class="featured-reviews__heading">
+              <h3 class="featured-reviews__heading inline-richtext {{ section.settings.text_transform }}">
+                {{ block.settings.heading }}
+              </h3>
+              <div class="featured-reviews__block__stars">
+                <svg xmlns="http://www.w3.org/2000/svg" width="146" height="23" viewBox="0 0 146 23" fill="none">
+                  <path d="M55.76 8.42001L46.6761 7.87294L43.255 0L39.834 7.87294L30.76 8.42001L37.7197 13.8333L35.4359 22.045L43.255 17.5175L51.0742 22.045L48.7904 13.8333L55.76 8.42001Z" fill="white"/>
+                  <path d="M85.76 8.42001L76.6761 7.87294L73.255 0L69.834 7.87294L60.76 8.42001L67.7197 13.8333L65.4359 22.045L73.255 17.5175L81.0742 22.045L78.7904 13.8333L85.76 8.42001Z" fill="white"/>
+                  <path d="M115.76 8.42001L106.676 7.87294L103.255 0L99.834 7.87294L90.76 8.42001L97.7197 13.8333L95.4359 22.045L103.255 17.5175L111.074 22.045L108.79 13.8333L115.76 8.42001Z" fill="white"/>
+                  <path d="M145.76 8.42001L136.676 7.87294L133.255 0L129.834 7.87294L120.76 8.42001L127.72 13.8333L125.436 22.045L133.255 17.5175L141.074 22.045L138.79 13.8333L145.76 8.42001Z" fill="white"/>
+                  <path d="M25.76 8.42001L16.6761 7.87294L13.255 0L9.83398 7.87294L0.76001 8.42001L7.71968 13.8333L5.43589 22.045L13.255 17.5175L21.0742 22.045L18.7904 13.8333L25.76 8.42001Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          {%- endif %}
+          {%- if block.settings.verified_customer -%}
+            <div class="featured-reviews__verified_customer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <g clip-path="url(#clip0_235_576)">
+                <path d="M19.5143 8.82142L18.1502 7.45763C17.8265 7.13389 17.5612 6.49413 17.5612 6.03534V4.10659C17.5612 3.18909 16.8117 2.43956 15.8944 2.43907H13.9649C13.5066 2.43907 12.8662 2.1733 12.5424 1.8498L11.1786 0.486008C10.5306 -0.162003 9.46956 -0.162003 8.82155 0.486008L7.45775 1.85078C7.13372 2.17452 6.4925 2.43956 6.03521 2.43956H4.10646C3.19019 2.43956 2.43968 3.18909 2.43968 4.10659V6.03538C2.43968 6.49238 2.17444 7.13414 1.85066 7.45768L0.486618 8.82147C-0.161881 9.46948 -0.161881 10.5305 0.486618 11.1795L1.85066 12.5433C2.17464 12.8671 2.43968 13.5086 2.43968 13.9656V15.8944C2.43968 16.8109 3.19019 17.5614 4.10646 17.5614H6.03526C6.49352 17.5614 7.13401 17.8267 7.4578 18.1502L8.8216 19.5145C9.46961 20.162 10.5306 20.162 11.1786 19.5145L12.5424 18.1502C12.8665 17.8265 13.5067 17.5614 13.965 17.5614H15.8945C16.8117 17.5614 17.5613 16.8109 17.5613 15.8944V13.9656C17.5613 13.5066 17.8268 12.8669 18.1503 12.5433L19.5143 11.1795C20.1618 10.5305 20.1618 9.46943 19.5143 8.82142ZM8.67706 13.7503L4.99974 10.0725L6.17828 8.89418L8.67735 11.3933L13.8217 6.25013L14.9999 7.42843L8.67706 13.7503Z" fill="#008000"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_235_576">
+                <rect width="20" height="20" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+              <P>{{ 'sections.featured-reviews.verified_customer' | t }}</P>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if block.settings.text != blank -%}
+          <div
+            class="featured-reviews__text rte {{ section.settings.text_transform }}"
+            data-modal="{{ block.settings.heading | handle }}-{{ forloop.index}}"
+          >
+            <P>{{ block.settings.text | strip_html | truncatewords: 30 }}</P>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+    <nav class="pagination-container">
+      <div id="pagination-numbers"></div>
+    </nav>
+  </div>
+</div>
+
+{%- for block in section.blocks -%}
+  <div class="modal" id="modalarea-{{ block.settings.heading | handle }}-{{ forloop.index}}">
+    <div class="modal-bg modal-exit"><span></span></div>
+    <div class="modal-container color-{{ section.settings.color_scheme }} gradient">
+      <div class="modal-inner">
+        <div class="modal-inner__block">
+          <div class="featured-reviews__heading-top">
+            {%- if block.settings.heading != blank -%}
+              <div class="featured-reviews__heading">
+                <h3 class="featured-reviews__heading inline-richtext {{ section.settings.text_transform }}">
+                  {{ block.settings.heading }}
+                </h3>
+                <div class="featured-reviews__block__stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="146" height="23" viewBox="0 0 146 23" fill="none">
+                    <path d="M55.76 8.42001L46.6761 7.87294L43.255 0L39.834 7.87294L30.76 8.42001L37.7197 13.8333L35.4359 22.045L43.255 17.5175L51.0742 22.045L48.7904 13.8333L55.76 8.42001Z" fill="white"/>
+                    <path d="M85.76 8.42001L76.6761 7.87294L73.255 0L69.834 7.87294L60.76 8.42001L67.7197 13.8333L65.4359 22.045L73.255 17.5175L81.0742 22.045L78.7904 13.8333L85.76 8.42001Z" fill="white"/>
+                    <path d="M115.76 8.42001L106.676 7.87294L103.255 0L99.834 7.87294L90.76 8.42001L97.7197 13.8333L95.4359 22.045L103.255 17.5175L111.074 22.045L108.79 13.8333L115.76 8.42001Z" fill="white"/>
+                    <path d="M145.76 8.42001L136.676 7.87294L133.255 0L129.834 7.87294L120.76 8.42001L127.72 13.8333L125.436 22.045L133.255 17.5175L141.074 22.045L138.79 13.8333L145.76 8.42001Z" fill="white"/>
+                    <path d="M25.76 8.42001L16.6761 7.87294L13.255 0L9.83398 7.87294L0.76001 8.42001L7.71968 13.8333L5.43589 22.045L13.255 17.5175L21.0742 22.045L18.7904 13.8333L25.76 8.42001Z" fill="white"/>
+                  </svg>
+                </div>
+              </div>
+            {%- endif %}
+            {%- if block.settings.verified_customer -%}
+              <div class="featured-reviews__verified_customer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <g clip-path="url(#clip0_235_576)">
+                  <path d="M19.5143 8.82142L18.1502 7.45763C17.8265 7.13389 17.5612 6.49413 17.5612 6.03534V4.10659C17.5612 3.18909 16.8117 2.43956 15.8944 2.43907H13.9649C13.5066 2.43907 12.8662 2.1733 12.5424 1.8498L11.1786 0.486008C10.5306 -0.162003 9.46956 -0.162003 8.82155 0.486008L7.45775 1.85078C7.13372 2.17452 6.4925 2.43956 6.03521 2.43956H4.10646C3.19019 2.43956 2.43968 3.18909 2.43968 4.10659V6.03538C2.43968 6.49238 2.17444 7.13414 1.85066 7.45768L0.486618 8.82147C-0.161881 9.46948 -0.161881 10.5305 0.486618 11.1795L1.85066 12.5433C2.17464 12.8671 2.43968 13.5086 2.43968 13.9656V15.8944C2.43968 16.8109 3.19019 17.5614 4.10646 17.5614H6.03526C6.49352 17.5614 7.13401 17.8267 7.4578 18.1502L8.8216 19.5145C9.46961 20.162 10.5306 20.162 11.1786 19.5145L12.5424 18.1502C12.8665 17.8265 13.5067 17.5614 13.965 17.5614H15.8945C16.8117 17.5614 17.5613 16.8109 17.5613 15.8944V13.9656C17.5613 13.5066 17.8268 12.8669 18.1503 12.5433L19.5143 11.1795C20.1618 10.5305 20.1618 9.46943 19.5143 8.82142ZM8.67706 13.7503L4.99974 10.0725L6.17828 8.89418L8.67735 11.3933L13.8217 6.25013L14.9999 7.42843L8.67706 13.7503Z" fill="#008000"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_235_576">
+                  <rect width="20" height="20" fill="white"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+                <P>{{ 'sections.featured-reviews.verified_customer' | t }}</P>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.text_full != blank -%}
+            <div class="featured-reviews__text rte {{ section.settings.text_transform }}">
+              <P>{{ block.settings.text_full }}</P>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+      <button class="modal-close modal-exit"><span></span></button>
+    </div>
+  </div>
+{%- endfor -%}
+
+{% schema %}
+{
+    "name": "t:sections.featured-reviews.name",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+        "groups": ["header", "footer"]
+    },
+    "settings": [{
+            "type": "richtext",
+            "id": "heading",
+            "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "label": "t:sections.featured-reviews.settings.heading.label"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [{
+                    "value": "h2",
+                    "label": "t:sections.all.heading_size.options__1.label"
+                },
+                {
+                    "value": "h1",
+                    "label": "t:sections.all.heading_size.options__2.label"
+                },
+                {
+                    "value": "h0",
+                    "label": "t:sections.all.heading_size.options__3.label"
+                },
+                {
+                    "value": "hxl",
+                    "label": "t:sections.all.heading_size.options__4.label"
+                }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+        },
+        {
+            "type": "select",
+            "id": "desktop_content_alignment",
+            "options": [{
+                    "value": "left",
+                    "label": "t:sections.image-banner.settings.desktop_content_alignment.options__1.label"
+                },
+                {
+                    "value": "center",
+                    "label": "t:sections.image-banner.settings.desktop_content_alignment.options__2.label"
+                },
+                {
+                    "value": "right",
+                    "label": "t:sections.image-banner.settings.desktop_content_alignment.options__3.label"
+                }
+            ],
+            "default": "center",
+            "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
+        },
+        {
+          "type": "text",
+          "id": "review_stars",
+          "label": "t:sections.featured-reviews.settings.review_stars.label"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "label": "t:sections.featured-reviews.settings.text.label"
+        },
+        {
+            "type": "select",
+            "id": "text_transform",
+            "label": "t:sections.header.settings.text_transform.label",
+            "options": [{
+                    "value": "capitalize",
+                    "label": "t:sections.header.settings.text_transform.options.capitalize.label"
+                },
+                {
+                    "value": "uppercase",
+                    "label": "t:sections.header.settings.text_transform.options.uppercase.label"
+                },
+                {
+                    "value": "lowercase",
+                    "label": "t:sections.header.settings.text_transform.options.lowercase.label"
+                },
+                {
+                    "value": "none",
+                    "label": "t:sections.header.settings.text_transform.options.none.label"
+                }
+            ],
+            "default": "none"
+        },
+        {
+            "type": "range",
+            "id": "number_block_desktop",
+            "min": 3,
+            "max": 30,
+            "step": 3,
+            "unit": "U",
+            "label": "t:sections.featured-reviews.settings.number_block_desktop.label",
+            "default": 9
+        },
+        {
+            "type": "range",
+            "id": "number_block_mobile",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "unit": "U",
+            "label": "t:sections.featured-reviews.settings.number_block_mobile.label",
+            "default": 3
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "default": "background-1"
+        },
+        {
+            "type": "header",
+            "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 40
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 52
+        }
+    ],
+    "blocks": [{
+        "type": "text",
+        "name": "t:sections.featured-reviews.blocks.name",
+        "settings": [
+            {
+              "type": "checkbox",
+              "id": "verified_customer",
+              "label": "t:sections.featured-reviews.blocks.settings.verified_customer.label",
+              "default": false
+            },
+            {
+                "type": "richtext",
+                "id": "heading",
+                "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+                "label": "t:sections.featured-reviews.blocks.settings.heading.label"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+                "label": "t:sections.featured-reviews.blocks.settings.text.label",
+                "info": "t:sections.featured-reviews.blocks.settings.text.info"
+            },
+            {
+                "type": "richtext",
+                "id": "text_full",
+                "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+                "label": "t:sections.featured-reviews.blocks.settings.text_full.label"
+            }
+        ]
+    }],
+    "presets": [{
+        "name": "t:sections.featured-reviews.name"
+    }]
+}
+{% endschema %}
