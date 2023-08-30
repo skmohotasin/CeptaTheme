@@ -16,10 +16,12 @@ function featuredContactUsForm() {
     trigger.addEventListener("click", function (event) {
       event.preventDefault();
       ContactUsFormModal.classList.add("open");
+      MainBody.classList.add("scrollbar-off");
       modalExits.forEach(function (exit) {
         exit.addEventListener("click", function (event) {
           event.preventDefault();
           ContactUsFormModal.classList.remove("open");
+          MainBody.classList.remove("scrollbar-off");
         });
       });
     });

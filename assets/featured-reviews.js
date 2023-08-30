@@ -1,17 +1,19 @@
 const modals = document.querySelectorAll("[data-modal]");
+const MainBodyForReview = document.querySelector("Body");
 
 modals.forEach(function (trigger) {
   trigger.addEventListener("click", function (event) {
     event.preventDefault();
-    const tagetmodel = "#modalarea-" + trigger.dataset.modal
-    const modal = document.querySelector(tagetmodel);   
+    const tagetmodel = "#modalarea-" + trigger.dataset.modal;
+    const modal = document.querySelector(tagetmodel);
     modal.classList.add("open");
-    
+    MainBodyForReview.classList.add("scrollbar-off");
     const exits = modal.querySelectorAll(".modal-exit");
     exits.forEach(function (exit) {
       exit.addEventListener("click", function (event) {
         event.preventDefault();
         modal.classList.remove("open");
+        MainBodyForReview.classList.remove("scrollbar-off");
       });
     });
   });

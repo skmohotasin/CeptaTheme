@@ -1,6 +1,4 @@
 {{ 'section-logo-list.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'splide.min.js.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'splide-extension-auto-scroll.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'logo-list.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
@@ -10,26 +8,26 @@
 {%- if section.settings.layout == 'grid' %}
   {%- style -%}
     @media screen and (max-width: 768px) {
-      .splide__slide {
-        width: calc((100vw / {{ section.settings.number_slide_mobile }}) - 9.732vw);
+      .logo-list .splide__slide {
+        max-width: calc((100vw / {{ section.settings.number_slide_mobile }}) - 9.732vw);
       }
     }
     @media screen and (min-width: 769px) {
-      .splide__slide {
-         width: calc(({{ settings.page_width }}px / {{  section.settings.number_slide_desktop }}) - 8.854vw);
+      .logo-list .splide__slide {
+         max-width: calc(({{ settings.page_width }}px / {{  section.settings.number_slide_desktop }}) - 8.854vw);
       }
     }
   {%- endstyle -%}
 {%- else -%}
   {%- style -%}
     @media screen and (max-width: 768px) {
-      .splide__slide {
-         width: calc((100vw / {{ section.settings.number_slide_mobile }}) - 9.732vw);
+      .logo-list .splide__slide {
+         max-width: calc((100vw / {{ section.settings.number_slide_mobile }}) - 9.732vw);
       }
     }
     @media screen and (min-width: 769px) {
-      .splide__slide {
-        width: calc((100vw / {{  section.settings.number_slide_desktop }}) - 8.854vw);
+      .logo-list .splide__slide {
+        max-width: calc((100vw / {{  section.settings.number_slide_desktop }}) - 8.854vw);
       }
     }
   {%- endstyle -%}
@@ -63,17 +61,29 @@
       <div
         id="splide-track"
         class="splide__track"
-        data-autoplay="{{ section.settings.auto_rotate }}"
         data-rewind="{{ section.settings.rewind }}"
         data-pause-on-hover="{{ section.settings.pauseOnHover }}"
         data-pause-on-focus="{{ section.settings.pauseOnFocus }}"
         data-speed="{{ section.settings.change_slides_speed }}"
-        data-number-slide-desktop="{{ section.settings.number_slide_desktop }}"
-        data-number-slide-mobile="{{ section.settings.number_slide_mobile }}"
       >
         <div class="splide__list">
           {%- for block in section.blocks -%}
-            <div class="splide__slide{% if block.settings.image == blank %} logo-bar__item-svg{% endif %}">
+            {%- style -%}
+              @media screen and (max-width: 768px) {
+                .logo-list .logo-{{ block.id }} .image {
+                  max-height: {{ block.settings.size | divided_by: 4.11 | divided_by: 1.666 | round: 4 }}vw;
+                }
+              }
+              @media screen and (min-width: 769px) {
+                .logo-list .logo-{{ block.id }} .image {
+                  max-height: {{ block.settings.size | divided_by: 19.20 | round: 4 }}vw;
+                }
+              }
+            {%- endstyle -%}
+            <div
+              class="splide__slide logo-{{ block.id }} {% if block.settings.image == blank %} logo-bar__item-svg{% endif %}"
+              {{ block.shopify_attributes }}
+            >
               {%- if block.settings.link != blank -%}
                 <a
                   href="{{ block.settings.link }}"
@@ -89,7 +99,7 @@
                 {{
                   block.settings.image
                   | image_url: width: max_width_page_width
-                  | image_tag: loading: 'lazy', sizes: sizes, widths: '165,240, 360, 535, 750'
+                  | image_tag: loading: 'lazy', sizes: sizes, widths: '165,240, 360, 535, 750', class: 'image'
                 }}
               {%- else -%}
                 {{ 'logo' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--no-padding' }}
@@ -175,12 +185,6 @@
     },
     {
       "type": "checkbox",
-      "id": "auto_rotate",
-      "label": "t:sections.logo-list.settings.auto_rotate.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
       "id": "rewind",
       "label": "t:sections.logo-list.settings.rewind.label",
       "default": false
@@ -238,8 +242,8 @@
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
-      "step": 4,
+      "max": 200,
+      "step": 2,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
       "default": 36
@@ -248,8 +252,8 @@
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
-      "step": 4,
+      "max": 200,
+      "step": 2,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
@@ -265,6 +269,16 @@
           "id": "image",
           "label": "t:sections.logo-list.blocks.logo.settings.image.label",
           "info": "t:sections.logo-list.blocks.logo.settings.image.info"
+        },
+        {
+            "type": "range",
+            "id": "size",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "t:sections.featured-blog.blocks.settings.size.label",
+            "default": 50
         },
         {
           "type": "url",

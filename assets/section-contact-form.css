@@ -25,6 +25,7 @@
 }
 
 .sub-title > span {
+  font-family: var(--font-heading-family);
   color: rgb(var(--color-foreground));
   font-size: 4.38vw;
   line-height: normal;
@@ -47,6 +48,9 @@
 .contact .title-wrapper-with-link {
   margin-bottom: 6.146vw;
 }
+.contact .button {
+  padding: 3.163vw 6.083vw 3.406vw;
+}
 @media screen and (min-width: 769px) {
   .contact .field:not(.last) {
     margin-bottom: 4.583vw;
@@ -67,5 +71,8 @@
   }
   .contact form {
     align-items: flex-start;
+  }
+  .contact .button {
+    padding: 0.208vw 1.302vw 0.521vw;
   }
 }

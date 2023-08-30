@@ -53,7 +53,9 @@
       {%- endif -%}
       <div class="contact__fields">
         <div class="field">
-          <div class="sub-title"><span>{{ 'templates.contact.form.name_label' | t }}</span></div>
+          <div class="sub-title">
+            <span>{{ 'templates.contact.form.name_label' | t }}</span>
+          </div>
           <input
             class="field__input"
             autocomplete="name"
@@ -63,10 +65,12 @@
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
             placeholder="{{ 'templates.contact.form.name' | t }}"
           >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+          <label class="field__label f-hide" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
         </div>
         <div class="field field--with-error">
-          <div class="sub-title"><span>{{ 'templates.contact.form.email_label' | t }}</span></div>
+          <div class="sub-title">
+            <span>{{ 'templates.contact.form.email_label' | t }}</span>
+          </div>
           <input
             autocomplete="email"
             type="email"
@@ -83,10 +87,7 @@
             {% endif %}
             placeholder="{{ 'templates.contact.form.email' | t }}"
           >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
+          <label class="field__label f-hide" for="ContactForm-email">{{- 'templates.contact.form.email' | t }}</label>
           {%- if form.errors contains 'email' -%}
             <small class="contact__field-error" id="ContactForm-email-error">
               <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
@@ -100,21 +101,24 @@
         </div>
       </div>
       <div class="field">
-        <div class="sub-title"><span>{{ 'templates.contact.form.url' | t }}</span></div>
+        <div class="sub-title">
+          <span>{{ 'templates.contact.form.url' | t }}</span>
+        </div>
         <input
           type="url"
           id="ContactForm-url"
           class="field__input"
           autocomplete="url"
           name="contact[{{ 'templates.contact.form.url' | t }}]"
-          pattern="http://.*"
           value="{% if form.company %}{{ form.company }}{% elsif customer %}{{ customer.company }}{% endif %}"
           placeholder="{{ 'templates.contact.form.url' | t }}"
         >
-        <label class="field__label" for="ContactForm-url">{{ 'templates.contact.form.url_example' | t }}</label>
+        <label class="field__label f-hide" for="ContactForm-url">{{ 'templates.contact.form.url_example' | t }}</label>
       </div>
       <div class="field last">
-        <div class="sub-title"><span>{{ 'templates.contact.form.comment_label' | t }}</span></div>
+        <div class="sub-title">
+          <span>{{ 'templates.contact.form.comment_label' | t }}</span>
+        </div>
         <textarea
           rows="10"
           id="ContactForm-body"
@@ -187,7 +191,7 @@
       "id": "padding_top",
       "min": 0,
       "max": 100,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
       "default": 36
@@ -197,7 +201,7 @@
       "id": "padding_bottom",
       "min": 0,
       "max": 100,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36

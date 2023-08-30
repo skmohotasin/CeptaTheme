@@ -1,3 +1,9 @@
+.section-contact-us-form .modal-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
 .contact-us-form-modal {
   position: fixed;
   width: 100vw;
@@ -18,7 +24,7 @@
   transition-delay: 0s;
   z-index: 5;
 }
-.modal-inner {
+.contact-us-form-modal-container .modal-inner {
   display: block;
   position: relative;
 }
@@ -37,8 +43,12 @@
   line-height: normal;
   color: rgba(var(--color-foreground), 0.5);
 }
+.contact-us-page__text_heading p {
+  font-family: var(--font-heading-family);
+}
 .contact-us-page__text_heading p,
 .contact-us-page__text p {
+  opacity: 0.8;
   margin: 0;
   line-height: normal;
 }
@@ -100,6 +110,7 @@
 }
 
 .sub-title {
+  font-family: var(--font-heading-family);
   position: absolute;
   display: block;
   top: -8.029vw;
@@ -125,6 +136,7 @@
   width: 100%;
 }
 .simple-btn {
+  font-family: var(--font-heading-family);
   text-decoration: none;
   color: rgb(var(--color-foreground));
   line-height: normal;
@@ -224,12 +236,28 @@
   visibility: visible;
   z-index: 2;
 }
+.contact-us-form-modal-button .button {
+  font-family: var(--font-heading-family);
+}
+.contact-us-form-modal-button {
+  border: 0.052vw solid #444;
+}
+.contact-us-form-modal-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.modal-inner .field.last .field__input:focus ~ .field__label,
+.field__input:not(:placeholder-shown) ~ .field__label {
+  opacity: 0;
+}
 @media screen and (max-width: 768px) {
   .contact__button {
     margin-top: 12.032vw;
+    margin-bottom: 9.732vw;
   }
   .contact-us-form-main form {
     margin-top: 8.029vw;
+    min-height: 100%;
   }
   .template-button {
     left: 0;
@@ -271,7 +299,7 @@
   }
   .contact-us-page-body {
     width: 100%;
-    max-height: 65vh;
+    max-height: 60vh;
     overflow: auto;
   }
   .contact-us-page__text_heading p {
@@ -314,17 +342,23 @@
     display: block;
     position: absolute;
     left: 5px;
-    bottom: 0;
+    bottom: -1.217vw;
     content: "";
     height: 1px;
     width: 14.5vw;
     background: rgb(var(--color-button-text));
   }
-  .modal-inner {
+  .contact-us-form-modal-container .modal-inner {
     height: calc(100vh - 9.732vw);
   }
   .contact-us-form-modal-button {
     padding: 3.65vw;
+  }
+  .contact-us-form-modal-button .button {
+    padding: 1.217vw 3.893vw 1.946vw;
+  }
+  .simple-btn {
+    font-size: 3.893vw;
   }
 }
 @media screen and (min-width: 800px) {
@@ -354,13 +388,14 @@
   .contact-us-form-modal-container {
     width: 37.5vw;
     max-width: 40vw;
-    padding: 2.604vw;
+    padding: 2.083vw;
   }
   .contact-us-form-main .field:not(.last) {
     margin-bottom: 4.208vw;
   }
   .contact__button {
     margin-top: 2.604vw;
+    margin-bottom: 2vw;
   }
   .contact__fields {
     display: grid;
@@ -445,16 +480,26 @@
     display: block;
     position: absolute;
     left: 5px;
-    bottom: 0;
+    bottom: -0.417vw;
     content: "";
     height: 1px;
     width: 3.5vw;
     background: rgb(var(--color-button-text));
   }
-  .modal-inner {
+  .contact-us-form-modal-container .modal-inner {
     height: calc(100vh - 5.208vw);
   }
   .contact-us-form-modal-button {
     padding: 1.042vw;
+  }
+  .contact-us-form-modal-button .button {
+    padding: 0.469vw 1.875vw 0.781vw;
+    font-size: 1.667vw;
+  }
+  .simple-btn {
+    font-size: 1.042vw;
+  }
+  .contact-us-form-modal-container .button {
+    padding: 0.208vw 1.302vw 0.521vw;
   }
 }

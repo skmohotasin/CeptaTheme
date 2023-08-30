@@ -1,19 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const slide = document.querySelector("#splide-track");
+  function Boolean(value){
+    if(value == 'true' ){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  var slide = document.querySelector("#splide-track");
+  var Sspeed = parseInt(slide.dataset.speed, 10);
+  var Srewind = Boolean(slide.dataset.rewind);
+  var SpauseOnHover = Boolean(slide.dataset.pauseOnHover);
+  var SpauseOnFocus = Boolean(slide.dataset.pauseOnFocus);
+  
   const splide = new Splide(".splide", {
     type: "loop",
     drag: "free",
-    focus: "center",
+    focus: "left",
     lazyload: "loaded",
+    start  : 0,
     arrows: false,
     pagination: false,
     autoWidth: true,
-    rewind: slide.dataset.rewind,
-    pauseOnHover: slide.dataset.pauseOnHover,
-    pauseOnFocus: slide.dataset.pauseOnFocus,
-    autoStart: slide.dataset.autoStart,
+    rewind: Srewind,
+    pauseOnHover: SpauseOnHover,
+    pauseOnFocus: SpauseOnFocus,
     autoScroll: {
-      speed: slide.dataset.speed,
+      speed: Sspeed,
     },
   });
 

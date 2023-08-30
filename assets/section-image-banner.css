@@ -39,7 +39,8 @@
   }
   .banner--large:not(.banner--mobile-bottom):not(.banner--adapt)
     .banner__content {
-    min-height: calc(100vh - 167px);
+    min-height: 100vh;
+      margin-top: -5.208vw;
   }
 }
 
@@ -76,7 +77,8 @@
 
   .banner--large:not(.banner--mobile-bottom):not(.banner--adapt)
     .banner__content {
-    min-height: calc(100vh - 124px);
+    min-height: 100vh;
+      margin-top: -17.032vw;
   }
 }
 
@@ -275,7 +277,7 @@
 
 @media screen and (min-width: 769px) {
   .banner__content {
-    padding: 5rem;
+    padding: 4.531vw 0;
   }
 
   .banner__content--top-left {
@@ -397,10 +399,6 @@
   margin-top: 1rem;
 }
 
-.banner__box > *:first-child {
-  margin-top: 0;
-}
-
 @media screen and (max-width: 768px) {
   .banner--stacked .banner__box {
     width: 100%;
@@ -473,11 +471,13 @@
   visibility: hidden;
 }
 .banner__buttons .banner__text {
-  color: rgb(var(--color-foreground));
+  color: rgba(var(--color-foreground), 0.9);
   text-decoration: underline;
 }
 .banner__buttons .banner__text > p {
+  font-family: var(--font-body-op-family);
   line-height: normal;
+  letter-spacing: normal;
 }
 @media screen and (max-width: 768px) {
   .banner:not(.slideshow) .rte a,
@@ -497,7 +497,7 @@
   .banner__buttons .button {
     --alpha-button-background: 0;
     font-size: 5.839vw;
-    padding: 3.65vw 10.4vw;
+    padding: 2.19vw 8.759vw 3.163vw;
   }
   .banner__box > * + .banner__buttons {
     margin-top: 19.465vw;
@@ -531,7 +531,7 @@
   .banner__buttons .button {
     --alpha-button-background: 0;
     font-size: 1.667vw;
-    padding: 0.781vw 1.875vw;
+    padding: 0.469vw 1.875vw 0.781vw;
   }
   .banner__box > * + .banner__buttons {
     margin-top: 5.208vw;
@@ -544,5 +544,9 @@
   }
   .banner__buttons .banner__text {
     font-size: 0.833vw;
+  }
+
+  .banner__heading {
+    margin-top: 18vh;
   }
 }

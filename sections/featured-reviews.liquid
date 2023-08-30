@@ -51,8 +51,13 @@
     data-pre-page-limit-mobile="{{ section.settings.number_block_mobile }}"
   >
     {%- for block in section.blocks -%}
-      <div class="featured-reviews__block{% if forloop.index > section.settings.number_block_desktop or forloop.index > section.settings.number_block_mobile  %} hidden{% endif %}">
-        <div class="featured-reviews__heading-top">
+      <div
+        class="featured-reviews__block{% if forloop.index > section.settings.number_block_desktop or forloop.index > section.settings.number_block_mobile  %} hidden{% endif %}"
+        data-modal="{{ block.settings.heading | handle }}-{{ forloop.index}}"
+      >
+        <div
+          class="featured-reviews__heading-top"
+        >
           {%- if block.settings.heading != blank -%}
             <div class="featured-reviews__heading">
               <h3 class="featured-reviews__heading inline-richtext {{ section.settings.text_transform }}">
@@ -87,11 +92,8 @@
         </div>
 
         {%- if block.settings.text != blank -%}
-          <div
-            class="featured-reviews__text rte {{ section.settings.text_transform }}"
-            data-modal="{{ block.settings.heading | handle }}-{{ forloop.index}}"
-          >
-            <P>{{ block.settings.text | strip_html | truncatewords: 30 }}</P>
+          <div class="featured-reviews__text rte {{ section.settings.text_transform }}">
+            <P>{{ block.settings.text | strip_html | truncatewords: 38 }}</P>
           </div>
         {%- endif -%}
       </div>
@@ -158,7 +160,7 @@
 {
     "name": "t:sections.featured-reviews.name",
     "tag": "section",
-    "class": "section",
+    "class": "section-featured-reviews",
     "disabled_on": {
         "groups": ["header", "footer"]
     },
@@ -278,8 +280,8 @@
             "type": "range",
             "id": "padding_top",
             "min": 0,
-            "max": 100,
-            "step": 4,
+            "max": 200,
+            "step": 2,
             "unit": "px",
             "label": "t:sections.all.padding.padding_top",
             "default": 40
@@ -288,8 +290,8 @@
             "type": "range",
             "id": "padding_bottom",
             "min": 0,
-            "max": 100,
-            "step": 4,
+            "max": 200,
+            "step": 2,
             "unit": "px",
             "label": "t:sections.all.padding.padding_bottom",
             "default": 52
