@@ -105,10 +105,9 @@
           <span>{{ 'templates.contact.form.url' | t }}</span>
         </div>
         <input
-          type="url"
+          type="text"
           id="ContactForm-url"
           class="field__input"
-          autocomplete="url"
           name="contact[{{ 'templates.contact.form.url' | t }}]"
           value="{% if form.company %}{{ form.company }}{% elsif customer %}{{ customer.company }}{% endif %}"
           placeholder="{{ 'templates.contact.form.url' | t }}"
