@@ -549,4 +549,7 @@
   .banner__heading {
     margin-top: 18vh;
   }
+  .banner__content.banner__content--top-center .banner__heading {
+    margin-top: 35vh;
+  }
 }

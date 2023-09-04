@@ -322,7 +322,7 @@
 }
 @media screen and (min-width: 769px) {
   .split-banner__content {
-    align-items: flex-start;
+    /* align-items: flex-start; */
   }
   .banner--desktop-transparent .button--secondary,
   .banner__buttons .button {
@@ -360,8 +360,9 @@
     height: 100%;
   }
   .banner--desktop-transparent .split-banner__box {
-    margin-top: 14.583vw;
-    margin-bottom: 8.854vw;
+    /* margin-top: 14.583vw; */
+    /* margin-bottom: 8.854vw; */
+    margin-bottom: -2vw;
     background: 0 0;
     max-width: 100%;
     border: none;

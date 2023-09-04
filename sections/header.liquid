@@ -135,13 +135,13 @@
        color: {{ section.settings.odd_btn | default: '#fff' }};
     }
     .no-gap .even .header__new-menu-item>span{
-        color: {{ section.settings.even_btn | default: '#fff' }};
+       color: {{ section.settings.even_btn | default: '#fff' }};
     }
     li[aria-current="otherpage"] .header__new-menu-item:not([aria-current="page"])>span{
       opacity: 1;
     }
     li:not([aria-current="otherpage"]) .header__new-menu-item:not([aria-current="page"])>span{
-      opacity: 0.7;
+      opacity: 0.6;
     }
     .no-gap .header__new-menu-item {
         font-size: 4.866vw;
@@ -490,6 +490,11 @@
   
   
   
+  
+  
+  
+  
+  
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
@@ -599,6 +604,11 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
+
+
+
+
+
 
 
 

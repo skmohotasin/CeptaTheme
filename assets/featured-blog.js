@@ -13,15 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 50);
   }
   const splideBlog = new Splide("#Blogslider", {
-    type: "loop",
+    type: "slide",
     perPage: numberSlideDesktop,
     focus: "left",
     lazyload: "loaded",
     pagination: false,
-    perMove: 1,
+    perMove: 3,
     clones: 0,
     breakpoints: {
       768: {
+        perMove: 1,
         perPage: 1,
       },
     },

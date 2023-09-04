@@ -206,6 +206,10 @@
     margin-bottom: 4.866vw;
     overflow-y: auto;
   }
+  .section-featured-blog-main .modal-container .card__content p:empty {
+    margin-bottom: 10vw;
+    display: block;
+  }
   #Blogslider {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -229,7 +233,7 @@
 @media screen and (min-width: 769px) {
   .section-featured-blog-main .modal-container {
     padding: 2.604vw;
-    max-width: 50vw;
+    max-width: 60vw;
     max-height: 75vh;
   }
   .section-featured-blog-main .modal-close {
@@ -301,6 +305,10 @@
   .section-featured-blog-main .modal-container .card__content {
     overflow-y: auto;
     max-height: 54vh;
+  }
+  .section-featured-blog-main .modal-container .card__content p:empty {
+    margin-bottom: 3vw;
+    display: block;
   }
   .featured-blog .title-and-buttons {
     align-items: center;

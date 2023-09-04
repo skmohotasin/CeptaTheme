@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
             speed: Sspeed,
         },
         breakpoints: {
-            768: {
-                padding: '4.866vw',
-                gap: '9.732vw',
-            }
+        768: {
+          padding: '4.866vw',
+          gap: '9.732vw',
         }
+      }
     });
     splide.mount(window.splide.Extensions);
 });
